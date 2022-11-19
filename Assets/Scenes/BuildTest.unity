@@ -543,7 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformToSave: {fileID: 1403183229}
   savedBlocks: []
-  tankGameModePrefab: {fileID: 6712433194846574912, guid: b03ceebba58c3244e84841d7841d6aa2, type: 3}
+  tankGameModePrefab: {fileID: 7275883876931128631, guid: 043995817f9c19643b808658901bdc16, type: 3}
   tankEditModePrefab: {fileID: 5042446496129085311, guid: 8b48ed789aa2429448e2c1fd4451c4a0, type: 3}
   database: {fileID: 11400000, guid: 10959450954b0cd48870879687658143, type: 2}
   doSave: 0

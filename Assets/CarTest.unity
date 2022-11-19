@@ -4559,6 +4559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 6426900367049793843, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6426900367049793996, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
       propertyPath: subjectRb
       value: 
@@ -4698,6 +4702,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7275883876931128635, guid: 043995817f9c19643b808658901bdc16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418856980239346500, guid: 043995817f9c19643b808658901bdc16, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

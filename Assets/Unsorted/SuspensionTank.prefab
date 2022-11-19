@@ -1355,8 +1355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e0297d3ce487d4093d8781bda11d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraHolder: {fileID: 0}
-  CameraZoomer: {fileID: 0}
+  CameraHolder: {fileID: 4095333862479277183}
+  CameraZoomer: {fileID: 8753574846298013418}
   seperateCam: 1
   turnSpeed: 200
   turretMoveSpeed: 500
@@ -3107,7 +3107,7 @@ MonoBehaviour:
   turnSpeed: 0
   tankBody: {fileID: 2952501483204958537}
   tankTurret: {fileID: 2952501483270408453}
-  turretCamera: {fileID: 0}
+  turretCamera: {fileID: 4095333862479277183}
   affectCamera: 1
 --- !u!114 &8828854481237117822
 MonoBehaviour:
@@ -3129,6 +3129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7275883876931128635}
     m_Modifications:
+    - target: {fileID: 1526907704115455496, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6426900367049793843, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
       propertyPath: m_Name
       value: TankCamera
@@ -3190,5 +3194,15 @@ PrefabInstance:
 --- !u!4 &8418856980239346618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6426900367049793997, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
+  m_PrefabInstance: {fileID: 3307091302699453047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4095333862479277183 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1526907704115455496, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
+  m_PrefabInstance: {fileID: 3307091302699453047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8753574846298013418 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6097829868241450141, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
   m_PrefabInstance: {fileID: 3307091302699453047}
   m_PrefabAsset: {fileID: 0}

@@ -27,8 +27,9 @@ public class RacingCamera : MonoBehaviour
     {
         transform.parent = null;
         GameObject airCursor = new GameObject();
-        airborneCursor.transform.parent = null;
+        airborneCursor = airCursor.transform;
         airborneCursor.transform.name = "AirCursor";
+        airborneCursor.transform.parent = null;
     }
 
     void FixedUpdate()
