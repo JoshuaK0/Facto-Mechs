@@ -39,7 +39,7 @@ public class TankTurretControls : MonoBehaviour
         float rotY = 0;
         float rotX = 0;
 
-        rotY = Input.GetAxis("Mouse Y");
+        rotY = -Input.GetAxis("Mouse Y");
         rotX = Input.GetAxis("Mouse X");
 
         if (seperateCam)

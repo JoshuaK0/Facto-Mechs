@@ -23,7 +23,15 @@ public class RacingCamera : MonoBehaviour
 
     private Vector3 vehiclePosition;
 
-    public void FixedUpdate()
+    void Start()
+    {
+        transform.parent = null;
+        GameObject airCursor = new GameObject();
+        airborneCursor.transform.parent = null;
+        airborneCursor.transform.name = "AirCursor";
+    }
+
+    void FixedUpdate()
     {
         localVelocity = subjectRb.transform.InverseTransformDirection(subjectRb.velocity);
 
