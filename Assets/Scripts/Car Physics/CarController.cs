@@ -24,6 +24,8 @@ public class CarController : MonoBehaviour
     private float currentAirControl = 0f;
 
     [Header("Car Specs")]
+
+    public float airborneDownforce;
     public float wheelBase;
     public float rearTrack;
 

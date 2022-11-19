@@ -23,6 +23,8 @@ public class RacingCamera : MonoBehaviour
 
     private Vector3 vehiclePosition;
 
+    public float forwardOffset;
+
     void Start()
     {
         transform.parent = null;
@@ -44,7 +46,7 @@ public class RacingCamera : MonoBehaviour
 
         else
         {
-            airborneCursor.LookAt(subjectRb.velocity.normalized * lookAhead);
+            airborneCursor.LookAt(subjectRb.velocity.normalized * lookAhead + (carController.transform.forward * forwardOffset));
             targetRotation = airborneCursor.eulerAngles;
         }
 

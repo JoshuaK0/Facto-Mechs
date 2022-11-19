@@ -2953,7 +2953,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7275883876931128631}
-  m_LocalRotation: {x: -0, y: 0.9995839, z: -0, w: 0.028846383}
+  m_LocalRotation: {x: 0, y: 0.99958384, z: 0, w: 0.028846335}
   m_LocalPosition: {x: 10, y: 3, z: -93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2985,6 +2985,7 @@ MonoBehaviour:
   driftBonus: 0.1
   airControl: 10
   airControlDelay: 1
+  airborneDownforce: 75
   wheelBase: 2.6571
   rearTrack: 2
   carAxles:
@@ -3010,7 +3011,7 @@ MonoBehaviour:
   turnRadius: 5.3
   centerOfMass: {x: 0, y: -1.65, z: 0}
   steerTime: 30
-  driveForce: 2
+  driveForce: 4
   grip: 3
   gripCurve:
     serializedVersion: 2
@@ -3133,9 +3134,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6097829868241450141, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 6426900367049793843, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
       propertyPath: m_Name
       value: TankCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6426900367049793996, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
+      propertyPath: lookAhead
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6426900367049793996, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
       propertyPath: subjectRb
@@ -3145,6 +3154,10 @@ PrefabInstance:
       propertyPath: carController
       value: 
       objectReference: {fileID: 7275883876931128628}
+    - target: {fileID: 6426900367049793996, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
+      propertyPath: forwardOffset
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6426900367049793997, guid: d44e97b33cae9ec40b0b0a6ccb2b8c61, type: 3}
       propertyPath: m_RootOrder
       value: 2

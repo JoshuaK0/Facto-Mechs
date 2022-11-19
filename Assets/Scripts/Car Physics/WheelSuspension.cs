@@ -135,6 +135,7 @@ public class WheelSuspension : MonoBehaviour
             wheelPivot.localRotation = Quaternion.Slerp(wheelModel.localRotation, Quaternion.identity, wheelSpeed * Time.deltaTime);
             wheelModel.localPosition = Vector3.Slerp(wheelModel.localPosition, wheelModelPosition + new Vector3(0, -maxLength, 0), wheelSusSpeed * Time.deltaTime);
             isGrounded = false;
+            rb.AddForce(-Vector3.up * carController.airborneDownforce * Time.deltaTime, ForceMode.Acceleration);
         }
 
     }

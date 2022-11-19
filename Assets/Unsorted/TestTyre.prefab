@@ -52,11 +52,11 @@ MonoBehaviour:
   wheelModel: {fileID: 5133185516920066645}
   wheelModelPosition: {x: 0, y: 0, z: 0}
   wheelSpeed: 10
-  wheelSusSpeed: 10
+  wheelSusSpeed: 20
   isGrounded: 0
-  restLength: 0.8
+  restLength: 1
   springTravel: 0.5
-  springStiffness: 40
+  springStiffness: 15
   damperStiffness: 2
   maxSpeed: 40
   wheelRadius: 0.45

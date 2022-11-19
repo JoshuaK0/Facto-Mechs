@@ -23,7 +23,7 @@ public class TankTurretControls : MonoBehaviour
     float cameraSmoothing;
 
     float turretTarget;
-    float cameraDist = 1;
+    float cameraDist;
 
     [SerializeField]
     Vector2 cameraBounds;
@@ -32,6 +32,7 @@ public class TankTurretControls : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        cameraDist = CameraZoomer.transform.localPosition.z;
     }
 
     private void Update()
