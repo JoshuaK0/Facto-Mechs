@@ -42,7 +42,10 @@ public class ConveyorSystemManager : TickBlock
 
         foreach (InteractableBlock block in interactableBlocks)
         {
-            block.AddCoords(Vector3.zero);
+            if(block.GetComponent<ConveyorBlock>() == null)
+            {
+                block.AddCoords(Vector3.zero);
+            }
         }
     }
 
@@ -53,6 +56,7 @@ public class ConveyorSystemManager : TickBlock
         interactableBlocks = FindObjectsOfType<InteractableBlock>(); 
         movableParts = FindObjectsOfType<MovablePart>();
         movableRoots = FindObjectsOfType<MovableRoot>();
+        ConveyorBlock[] conveyors = FindObjectsOfType<ConveyorBlock>();
 
         foreach (MovableRoot root in movableRoots)
         {
@@ -68,7 +72,7 @@ public class ConveyorSystemManager : TickBlock
         {
             for (int i = 0; i < movableParts.Length; i++)
             {
-                foreach (MovablePart part in movableParts)
+                foreach (ConveyorBlock conveyor in conveyors)
                 {
                     routineCounter++;
                     if(routineCounter >= movesPerFrame)
@@ -76,29 +80,21 @@ public class ConveyorSystemManager : TickBlock
                         routineCounter = 0;
                         yield return null;
                     }
-                    part.DoTick();
+                    conveyor.ConveyorBlockMove();
                 }
             }
         }
         else
         {
-            foreach (MovablePart part in movableParts)
+            foreach (ConveyorBlock conveyor in conveyors)
             {
-                if(part == null)
+                routineCounter++;
+                if (routineCounter >= movesPerFrame)
                 {
-                    continue;
+                    routineCounter = 0;
+                    yield return null;
                 }
-                else
-                {
-                    routineCounter++;
-                    if (routineCounter >= movesPerFrame)
-                    {
-                        routineCounter = 0;
-                        yield return null;
-                    }
-                    part.DoTick();
-                }
-                
+                conveyor.ConveyorBlockMove();
             }
         }
     }

@@ -61,7 +61,7 @@ public class ProducerBlock : TickBlock
 
     bool CanProduce()
     {
-        foreach (Vector3 space in ConveyorSystemManager.Instance().occupiedSpaces)
+/*        foreach (Vector3 space in ConveyorSystemManager.Instance().occupiedSpaces)
         {
             Vector3Int comparisonVector = new Vector3Int
                 (
@@ -73,7 +73,7 @@ public class ProducerBlock : TickBlock
             {
                 return false;
             }
-        }
+        }*/
         return true;
     }
 }

@@ -14,23 +14,6 @@ public class MovablePart : InteractableBlock
     ConveyorBlock conveyorBlock;
 
     public BulletMod bulletMod;
-    public void DoTick()
-    {
-        InteractableBlock downBlock = GetInteractable(-Vector3.up);
-        if(downBlock == null)
-        {
-            DoMove(-Vector3.up);
-        }
-        else
-        {
-            ConveyorBlock conveyor = downBlock.GetComponent<ConveyorBlock>();
-            if (conveyor != null)
-            {
-                conveyorBlock = conveyor;
-                DoMove(ConveyorSystemManager.Instance().blockParent.InverseTransformDirection(conveyor.transform.forward));
-            }
-        }
-    }
 
     public void DoMove(Vector3 moveDir)
     {

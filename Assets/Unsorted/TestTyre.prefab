@@ -51,13 +51,13 @@ MonoBehaviour:
   wheelPivot: {fileID: 6726853633933186020}
   wheelModel: {fileID: 5133185516920066645}
   wheelModelPosition: {x: 0, y: 0, z: 0}
-  wheelSpeed: 10
-  wheelSusSpeed: 20
+  wheelSpeed: 5
+  wheelSusSpeed: 15
   isGrounded: 0
   restLength: 1
   springTravel: 0.5
-  springStiffness: 15
-  damperStiffness: 2
+  springStiffness: 40
+  damperStiffness: 1.5
   maxSpeed: 40
   wheelRadius: 0.45
   wheelWidth: 0.45

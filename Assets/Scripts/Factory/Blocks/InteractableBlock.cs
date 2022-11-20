@@ -13,16 +13,13 @@ public class InteractableBlock : MonoBehaviour
     {
         try
         {
-            foreach (InteractableBlock block in FindObjectOfType<ConveyorSystemManager>().InteractableBlocks())
+            foreach (InteractableBlock block in ConveyorSystemManager.Instance().InteractableBlocks())
             {
-                if (block != null)
+                if (block != null && block != this)
                 {
-                    if (transform != null)
+                    if (Vector3.Distance(block.transform.position, transform.position + position) < 0.25f)
                     {
-                        if (Vector3.Distance(block.transform.position, transform.position + position) < 0.25f)
-                        {
-                            return block;
-                        }
+                        return block;
                     }
                 }
             }

@@ -47,4 +47,18 @@ public class ConveyorBlock : InteractableBlock
     {
         return frontConveyor;
     }
+
+    public void ConveyorBlockMove()
+    {
+        InteractableBlock currentBlock = GetInteractable(Vector3.zero);
+        if (currentBlock != null)
+        {
+            MovablePart movable = currentBlock.GetComponent<MovablePart>();
+            if (movable != null)
+            {
+                Debug.Log(movable);
+                movable.DoMove(ConveyorSystemManager.Instance().blockParent.InverseTransformDirection(transform.forward));
+            }
+        }
+    }
 }
