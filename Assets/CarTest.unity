@@ -1248,14 +1248,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7275883876931128628, guid: 043995817f9c19643b808658901bdc16, type: 3}
-      propertyPath: driveForce
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7275883876931128628, guid: 043995817f9c19643b808658901bdc16, type: 3}
-      propertyPath: airborneDownforce
-      value: 75
-      objectReference: {fileID: 0}
     - target: {fileID: 7275883876931128631, guid: 043995817f9c19643b808658901bdc16, type: 3}
       propertyPath: m_Name
       value: SuspensionTank
@@ -1303,18 +1295,6 @@ PrefabInstance:
     - target: {fileID: 7275883876931128635, guid: 043995817f9c19643b808658901bdc16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8418856980239346619, guid: 043995817f9c19643b808658901bdc16, type: 3}
-      propertyPath: lookAhead
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8418856980239346619, guid: 043995817f9c19643b808658901bdc16, type: 3}
-      propertyPath: forwardOffset
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753574846298013418, guid: 043995817f9c19643b808658901bdc16, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 043995817f9c19643b808658901bdc16, type: 3}
