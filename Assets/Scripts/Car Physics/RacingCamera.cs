@@ -38,8 +38,9 @@ public class RacingCamera : MonoBehaviour
     {
         localVelocity = subjectRb.transform.InverseTransformDirection(subjectRb.velocity);
 
+        targetRotation = subjectRb.transform.localEulerAngles;
 
-        if (carController.isGrounded)
+/*        if (carController.isGrounded)
         {
             targetRotation = subjectRb.transform.localEulerAngles;
         }
@@ -48,13 +49,26 @@ public class RacingCamera : MonoBehaviour
         {
             airborneCursor.LookAt(subjectRb.velocity.normalized * lookAhead + (carController.transform.forward * forwardOffset));
             targetRotation = airborneCursor.eulerAngles;
-        }
+        }*/
 
-        transform.localEulerAngles = new Vector3(
+        if(carController.isGrounded)
+        {
+            transform.localEulerAngles = new Vector3(
             Mathf.LerpAngle(transform.localEulerAngles.x, targetRotation.x, rotationSpeed * Time.deltaTime),
             Mathf.LerpAngle(transform.localEulerAngles.y, targetRotation.y, rotationSpeed * Time.deltaTime),
             Mathf.LerpAngle(transform.localEulerAngles.z, targetRotation.z, rotationSpeed * Time.deltaTime)
             );
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(
+            Mathf.LerpAngle(transform.eulerAngles.x, transform.eulerAngles.x, rotationSpeed * Time.deltaTime),
+            Mathf.LerpAngle(transform.eulerAngles.y, transform.eulerAngles.y, rotationSpeed * Time.deltaTime),
+            Mathf.LerpAngle(transform.eulerAngles.z, 0, rotationSpeed * Time.deltaTime)
+            );
+        }
+
+        
 
         vehiclePosition = Vector3.Slerp(vehiclePosition, subjectRb.transform.position, overallPositionalSpeed * Time.deltaTime);
 

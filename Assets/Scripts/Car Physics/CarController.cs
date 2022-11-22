@@ -44,15 +44,20 @@ public class CarController : MonoBehaviour
     public float steerTime;
     public float driveForce;
     public float grip;
+    public float driftGrip;
+    public float steeringDriftGrip;
     public AnimationCurve gripCurve;
     public AnimationCurve torqueCurve;
 
     [Header("Inputs")]
     public float steerInput;
     public float driftThreshold;
+    public float manualDriftThreshold;
 
     private float ackermannAngleLeft;
     private float ackermannAngleRight;
+
+    bool isDrifting = false;
 
     void Start()
     {
@@ -88,6 +93,8 @@ public class CarController : MonoBehaviour
             {
                 leftSteeringWheel = leftWheel.GetComponent<WheelSuspension>();
                 rightSteeringWheel = rightWheel.GetComponent<WheelSuspension>();
+                leftWheel.GetComponent<WheelSuspension>().isSteering = true;
+                rightWheel.GetComponent<WheelSuspension>().isSteering = true;
             }
         }
         wheelBase = frontAxle - backAxle;
@@ -152,6 +159,21 @@ public class CarController : MonoBehaviour
         else
         {
             currentAirControl = 0f;
+        }
+
+        
+        if (Input.GetKey(KeyCode.Space) && slipRatio <= manualDriftThreshold)
+        {
+            isDrifting = true;
+        }
+        if (slipRatio >= manualDriftThreshold)
+        {
+            isDrifting = false;
+        }
+
+        if (isDrifting)
+        {
+            carRb.AddTorque(transform.up * steerInput * driftBonus, ForceMode.Acceleration);
         }
     }
 

@@ -53,6 +53,7 @@ public class WeaponSystem : InteractableBlock
                     behaviourList.Add(newBehaviour.GetComponent<BulletBehaviour>());
                 }
                 bulletDriver.SetBehaviours(behaviourList);
+                bulletDriver.SetMod(combinedMod);
                 bulletDriver.BulletDriverStart();
             }
         }

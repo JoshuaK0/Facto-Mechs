@@ -31,3 +31,6 @@ MonoBehaviour:
   - name: Welder
     prefab: {fileID: 5131617142006603557, guid: abaef8af758cf58409f5cb1849352028, type: 3}
     cost: 10
+  - name: ThrusterProducer
+    prefab: {fileID: 5131617142006603557, guid: 50a1db75ebc0a2849bf57d553a550371, type: 3}
+    cost: 10

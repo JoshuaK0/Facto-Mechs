@@ -15,6 +15,11 @@ public static class ModCombiner
                 outputMod.muzzleVelocity += mod.muzzleVelocity;
                 outputMod.fireRate += mod.fireRate;
                 outputMod.ammo += mod.ammo;
+                outputMod.rifling += mod.rifling;
+                if(mod.hasCore)
+                {
+                    outputMod.hasCore = true;
+                }
 
                 foreach (Transform b in mod.behaviours)
                 {
@@ -38,6 +43,12 @@ public static class ModCombiner
             mod1.muzzleVelocity += mod2.muzzleVelocity;
             mod1.fireRate += mod2.fireRate;
             mod1.ammo += mod2.ammo;
+            mod1.rifling += mod2.rifling;
+            if(mod2.hasCore)
+            {
+                mod1.hasCore = true;
+            }
+            
 
             foreach (Transform b in mod2.behaviours)
             {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class WheelSuspension : MonoBehaviour
@@ -51,6 +52,10 @@ public class WheelSuspension : MonoBehaviour
 
     public AnimationCurve driftGripCurve;
 
+    public bool isSteering;
+
+    public bool isDrifting;
+
 
 
     void Start()
@@ -63,20 +68,14 @@ public class WheelSuspension : MonoBehaviour
     {
         wheelAngle = Mathf.Lerp(wheelAngle, steerAngle, carController.steerTime * Time.deltaTime);
         transform.localRotation = Quaternion.Euler(Vector3.up * wheelAngle);
+
+        
     }
 
     void FixedUpdate()
     {
         if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, maxLength + wheelRadius))
         {
-            if(slipRatio <= carController.driftThreshold)
-            {
-                skidMarks.gameObject.SetActive(true);
-            }
-            else
-            {
-                skidMarks.gameObject.SetActive(false);
-            }
             skidMarks.position = hit.point;
             isGrounded = true;
             lastLength = springLength;
@@ -108,15 +107,53 @@ public class WheelSuspension : MonoBehaviour
             slipRatio = Mathf.Abs(localWheelVelocity.z) / (Mathf.Abs(localWheelVelocity.x) + Mathf.Abs(localWheelVelocity.z));
 
             forwardForce = Input.GetAxis("Vertical") * carController.driveForce * carController.torqueCurve.Evaluate(Mathf.InverseLerp(0, maxSpeed, rb.velocity.magnitude));
-            if(slipRatio != float.NaN)
+
+            if (Input.GetKey(KeyCode.Space) && carController.slipRatio <= carController.manualDriftThreshold)
             {
-                sidewaysForce = localWheelVelocity.x * carController.grip * carController.gripCurve.Evaluate(Mathf.Clamp((1 - slipRatio), 0, 1));
+                isDrifting = true;
+            }
+            if (carController.slipRatio >= carController.manualDriftThreshold)
+            {
+                isDrifting = false;
+            }
+
+            if (isDrifting)
+            {
+                if (isSteering)
+                {
+                    sidewaysForce = localWheelVelocity.x * carController.steeringDriftGrip * Time.deltaTime;
+                }
+                else
+                {
+                    sidewaysForce = localWheelVelocity.x * carController.driftGrip * Time.deltaTime;
+                }
+                sidewaysForce = localWheelVelocity.x * carController.driftGrip * Time.deltaTime;
+                skidMarks.gameObject.SetActive(true);
             }
             else
             {
-                sidewaysForce = 1;
+                if (carController.slipRatio <= carController.driftThreshold)
+                {
+                    if (isSteering)
+                    {
+                        sidewaysForce = localWheelVelocity.x * carController.steeringDriftGrip * Time.deltaTime;
+                    }
+                    else
+                    {
+                        sidewaysForce = localWheelVelocity.x * carController.driftGrip * Time.deltaTime;
+                    }
+                    sidewaysForce = localWheelVelocity.x * carController.driftGrip * Time.deltaTime;
+                    skidMarks.gameObject.SetActive(true);
+                }
+                else
+                {
+                    sidewaysForce = localWheelVelocity.x * carController.grip * Time.deltaTime;
+                    skidMarks.gameObject.SetActive(false);
+                }
             }
+
             
+
             rb.AddForceAtPosition(forwardForce * Vector3.Cross(transform.right, hit.normal), hit.point, ForceMode.Acceleration);
             
             Vector3 antiSlip = -sidewaysForce * transform.right;

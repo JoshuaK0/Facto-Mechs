@@ -56,9 +56,9 @@ MonoBehaviour:
   isGrounded: 0
   restLength: 1
   springTravel: 0.5
-  springStiffness: 40
-  damperStiffness: 1.5
-  maxSpeed: 40
+  springStiffness: 20
+  damperStiffness: 3
+  maxSpeed: 50
   wheelRadius: 0.45
   wheelWidth: 0.45
   slipRatio: 0
@@ -70,17 +70,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: -0.5
       value: 1
-      inSlope: -0.5
-      outSlope: -0.5
-      tangentMode: 34
+      inSlope: -0.4586645
+      outSlope: -0.4586645
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
+      outWeight: 0.5247933
+    - serializedVersion: 3
+      time: -0.14759344
+      value: 0.8311045
+      inSlope: -1.4602827
+      outSlope: -1.4602827
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1.5
       value: 0
-      inSlope: -0.5
-      outSlope: -0.5
+      inSlope: -0.5044354
+      outSlope: -0.5044354
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -88,6 +97,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  isSteering: 0
+  isDrifting: 0
 --- !u!1 &3962211239826794163
 GameObject:
   m_ObjectHideFlags: 0

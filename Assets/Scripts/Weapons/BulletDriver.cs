@@ -7,8 +7,11 @@ public class BulletDriver : MonoBehaviour
     [SerializeField]
     List<BulletBehaviour> behaviours;
     public Rigidbody rb;
+
+    [SerializeField] BulletMod mods;
     public void BulletDriverStart()
     {
+        StandardBulletBehaviour();
         InitBullet();
         foreach(BulletBehaviour b in behaviours)
         {
@@ -21,8 +24,18 @@ public class BulletDriver : MonoBehaviour
         behaviours = newBehaviours;
     }
 
+    public void SetMod(BulletMod newMod)
+    {
+        mods = newMod;
+    }
+
     void InitBullet()
     {
         rb = gameObject.AddComponent<Rigidbody>();
+    }
+
+    void StandardBulletBehaviour()
+    {
+
     }
 }
