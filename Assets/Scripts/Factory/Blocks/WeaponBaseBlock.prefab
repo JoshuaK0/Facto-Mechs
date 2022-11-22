@@ -654,11 +654,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: {x: 0, y: 0}
-  accuracy: {x: 0, y: 0}
+  accuracy: {x: 7, y: 0}
   muzzleVelocity: {x: 0, y: 0}
   fireRate: {x: 0.7, y: 0}
+  rifling: {x: 0, y: 0}
   ammo: 0
   behaviours: []
+  hasCore: 0
 --- !u!1 &9113393537737218309
 GameObject:
   m_ObjectHideFlags: 0

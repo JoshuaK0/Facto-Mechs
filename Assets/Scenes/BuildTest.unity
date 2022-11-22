@@ -542,7 +542,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformToSave: {fileID: 1403183229}
-  savedBlocks: []
+  savedBlocks:
+  - index: 1
+    position: {x: 1, y: 1, z: -2}
+    rotation: {x: 0, y: 0, z: 0}
+  - index: 6
+    position: {x: 0, y: 1, z: -2}
+    rotation: {x: 0, y: 0, z: 0}
+  - index: 2
+    position: {x: 1, y: 1, z: -1}
+    rotation: {x: 0, y: 0.0000054659627, z: 0}
+  - index: 2
+    position: {x: 1, y: 1, z: 0}
+    rotation: {x: 0, y: 270.00006, z: 0}
+  - index: 5
+    position: {x: -1, y: 1, z: 0}
+    rotation: {x: 0, y: 89.99997, z: 0}
+  - index: 4
+    position: {x: 0, y: 1, z: 1}
+    rotation: {x: 0, y: -0.00013295679, z: 0}
+  - index: 3
+    position: {x: -0.0000023205337, y: 1, z: 2}
+    rotation: {x: 0, y: -0.00013295679, z: 0}
+  - index: 3
+    position: {x: -0.0000046410673, y: 1, z: 3}
+    rotation: {x: 0, y: -0.00013295679, z: 0}
+  - index: 3
+    position: {x: -0.000006961601, y: 1, z: 4}
+    rotation: {x: 0, y: -0.00013295679, z: 0}
+  - index: 3
+    position: {x: -0.000009282135, y: 1, z: 5}
+    rotation: {x: 0, y: -0.00013295679, z: 0}
+  - index: 3
+    position: {x: -0.000011602669, y: 1, z: 6}
+    rotation: {x: 0, y: -0.00013295679, z: 0}
   tankGameModePrefab: {fileID: 7275883876931128631, guid: 043995817f9c19643b808658901bdc16, type: 3}
   tankEditModePrefab: {fileID: 5042446496129085311, guid: 8b48ed789aa2429448e2c1fd4451c4a0, type: 3}
   database: {fileID: 11400000, guid: 10959450954b0cd48870879687658143, type: 2}

@@ -34,7 +34,8 @@ public class WeaponSystem : InteractableBlock
                 ammo--;
                 GameObject newBullet = new GameObject();
                 newBullet.transform.parent = null;
-                newBullet.transform.position = muzzle.position;
+                newBullet.transform.rotation = transform.rotation;
+                newBullet.transform.position = muzzle.position + muzzle.forward * 3f;
                 BulletDriver bulletDriver = newBullet.AddComponent<BulletDriver>();
 
                 List<BulletBehaviour> behaviourList = new List<BulletBehaviour>();
@@ -52,8 +53,8 @@ public class WeaponSystem : InteractableBlock
                     newBehaviour.transform.parent = bulletDriver.transform;
                     behaviourList.Add(newBehaviour.GetComponent<BulletBehaviour>());
                 }
+                bulletDriver.SetMod(ModCombiner.CombineTwoMods(bulletDriver.gameObject.AddComponent<BulletMod>(), combinedMod));
                 bulletDriver.SetBehaviours(behaviourList);
-                bulletDriver.SetMod(combinedMod);
                 bulletDriver.BulletDriverStart();
             }
         }

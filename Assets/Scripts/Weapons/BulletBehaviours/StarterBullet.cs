@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class StarterBullet : BulletBehaviour
 {
-    [SerializeField] float velocity;
-
     [SerializeField] GameObject visualPrefab;
 
     public override void BulletStart()
     {
-        GameObject newVisual = Instantiate(visualPrefab, target.transform.position + transform.forward * 5, target.transform.rotation);
-        newVisual.transform.parent = this.transform;
-        target.rb.useGravity = false;
-        target.rb.AddForce(transform.forward * velocity, ForceMode.VelocityChange);
+        GameObject newVisual = Instantiate(visualPrefab);
+        newVisual.transform.parent = target.transform;
+        newVisual.transform.localPosition = Vector3.zero;
+        newVisual.transform.localRotation = Quaternion.identity;
     }
     
     public override void BulletHit()

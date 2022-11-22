@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InteractableBlock : MonoBehaviour
 {
-    Vector3Int previousPos;
     void Update()
     {
         transform.localPosition = RoundVector(transform.localPosition);
@@ -32,16 +31,6 @@ public class InteractableBlock : MonoBehaviour
         
         return null;
     }
-
-    public void UpdateCoord(Vector3 offset)
-    {
-        if(FindObjectOfType<ConveyorSystemManager>().occupiedSpaces.Contains(previousPos))
-        {
-            FindObjectOfType<ConveyorSystemManager>().occupiedSpaces.Remove(previousPos);
-            AddCoords(offset);
-        }
-    }
-
     public Vector3Int RoundVector(Vector3 input)
     {
         return new Vector3Int
@@ -50,15 +39,5 @@ public class InteractableBlock : MonoBehaviour
             Mathf.RoundToInt(input.y),
             Mathf.RoundToInt(input.z)
             );
-    }
-
-    public void AddCoords(Vector3 offset)
-    {
-        FindObjectOfType<ConveyorSystemManager>().occupiedSpaces.Add(RoundVector(transform.localPosition + offset));
-    }
-
-    public void UpdatePreviousPos(Vector3 offset)
-    {
-        previousPos = RoundVector(transform.localPosition + offset);
     }
 }

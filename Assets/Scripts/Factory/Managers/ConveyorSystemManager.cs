@@ -38,15 +38,6 @@ public class ConveyorSystemManager : TickBlock
     public override void DoInitTick()
     {
         interactableBlocks = FindObjectsOfType<InteractableBlock>();
-        conveyorBlocks = FindObjectsOfType<ConveyorBlock>();
-
-        foreach (InteractableBlock block in interactableBlocks)
-        {
-            if(block.GetComponent<ConveyorBlock>() == null)
-            {
-                block.AddCoords(Vector3.zero);
-            }
-        }
     }
 
     IEnumerator MoveBlocks()

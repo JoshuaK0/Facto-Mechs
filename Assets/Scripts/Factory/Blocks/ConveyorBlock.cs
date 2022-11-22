@@ -9,6 +9,8 @@ public class ConveyorBlock : InteractableBlock
     [SerializeField]
     ConveyorBlock frontConveyor;
 
+    Vector3Int previousPos;
+
     void Update()
     {
         if(ConveyorSystemManager.Instance() == null)

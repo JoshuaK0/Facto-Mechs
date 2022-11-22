@@ -61,19 +61,19 @@ public class ProducerBlock : TickBlock
 
     bool CanProduce()
     {
-/*        foreach (Vector3 space in ConveyorSystemManager.Instance().occupiedSpaces)
+        foreach (Vector3 space in ConveyorSystemManager.Instance().occupiedSpaces)
         {
             Vector3Int comparisonVector = new Vector3Int
                 (
                     Mathf.RoundToInt(transform.localPosition.x),
                     Mathf.RoundToInt(transform.localPosition.y),
                     Mathf.RoundToInt(transform.localPosition.z) + 1
-                ) ;
+                );
             if (ConveyorSystemManager.Instance().occupiedSpaces.Contains(comparisonVector))
             {
                 return false;
             }
-        }*/
+        }
         return true;
     }
 }

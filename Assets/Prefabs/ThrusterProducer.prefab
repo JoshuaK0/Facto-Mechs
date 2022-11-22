@@ -346,8 +346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 1
-  tickRate: 5
-  block: {fileID: 3627492603640831568, guid: 757caa2c9d303484ab2455523dfb8b8f, type: 3}
+  tickRate: 1
+  block: {fileID: 3627492603640831568, guid: ccbf149d7d0ad524db0d6f253379c6c6, type: 3}
 --- !u!1001 &1345816950731996912
 PrefabInstance:
   m_ObjectHideFlags: 0

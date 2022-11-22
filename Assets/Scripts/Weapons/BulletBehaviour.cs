@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class BulletBehaviour : MonoBehaviour
 {
+    [SerializeField]
     protected BulletDriver target;
 
     public void SetTarget(BulletDriver newTarget)

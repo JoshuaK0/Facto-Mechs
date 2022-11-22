@@ -15,6 +15,8 @@ public class MovablePart : InteractableBlock
 
     public BulletMod bulletMod;
 
+    Vector3Int previousPos;
+
     public void DoMove(Vector3 moveDir)
     {
         root.DoMove(moveDir);
@@ -106,5 +108,23 @@ public class MovablePart : InteractableBlock
         ConveyorSystemManager.Instance().occupiedSpaces.Remove(RoundVector(transform.localPosition + root.transform.localPosition));
         Destroy(blockVisual.gameObject);
         Destroy(gameObject);
+    }
+    public void AddCoords(Vector3 offset)
+    {
+        FindObjectOfType<ConveyorSystemManager>().occupiedSpaces.Add(RoundVector(transform.localPosition + offset));
+    }
+
+    public void UpdatePreviousPos(Vector3 offset)
+    {
+        previousPos = RoundVector(transform.localPosition + offset);
+    }
+
+    public void UpdateCoord(Vector3 offset)
+    {
+        if (FindObjectOfType<ConveyorSystemManager>().occupiedSpaces.Contains(previousPos))
+        {
+            FindObjectOfType<ConveyorSystemManager>().occupiedSpaces.Remove(previousPos);
+            AddCoords(offset);
+        }
     }
 }

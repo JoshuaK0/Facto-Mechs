@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class BulletDriver : MonoBehaviour
 {
@@ -11,13 +12,13 @@ public class BulletDriver : MonoBehaviour
     [SerializeField] BulletMod mods;
     public void BulletDriverStart()
     {
+        rb = gameObject.AddComponent<Rigidbody>();
         StandardBulletBehaviour();
-        InitBullet();
-        foreach(BulletBehaviour b in behaviours)
+        foreach (BulletBehaviour b in behaviours)
         {
             b.SetTarget(this);
             b.BulletStart();
-        }  
+        }
     }
     public void SetBehaviours(List<BulletBehaviour> newBehaviours)
     {
@@ -29,13 +30,17 @@ public class BulletDriver : MonoBehaviour
         mods = newMod;
     }
 
-    void InitBullet()
-    {
-        rb = gameObject.AddComponent<Rigidbody>();
-    }
-
     void StandardBulletBehaviour()
     {
+        rb.useGravity = false;
+        transform.RotateAround(transform.position, transform.up, Random.Range(-mods.accuracy.x, mods.accuracy.x));
+        transform.RotateAround(transform.position, transform.right, Random.Range(-mods.accuracy.x, mods.accuracy.x));
+        transform.RotateAround(transform.position, transform.forward, Random.Range(1, 360));
+        rb.AddForce(transform.forward * mods.muzzleVelocity.x, ForceMode.VelocityChange);
+    }
 
+    void Update()
+    {
+        transform.RotateAround(transform.position, transform.forward, mods.rifling.x * Time.deltaTime);
     }
 }
